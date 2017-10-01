@@ -1,0 +1,38 @@
+<style type="text/css">
+
+
+  .btn1 {
+    color : white;
+    background-color: rgba(244, 67, 54, 0.96);
+
+    font-size: 16px;
+  }
+
+  .btn1:not([disabled]):hover {
+    background-color: rgba(244, 67, 54, 0.96);
+    color : white;
+  }
+
+  .btn1[disabled] {
+    color : rgb(187, 187, 187);
+    background-color: rgba(230, 230, 229, 0.96);
+  }
+
+  .imagenalerta {
+    width: 100%;
+    height: auto;
+  }
+</style>
+<div layout="row" layout-xs="column" >
+  <div flex="40">
+   <img class="imagenalerta" src="assets/images/alerta.png">
+  </div>
+  <div flex="60">
+    <h1 class="md-display-4">oops</h1>
+    <p><h4 class="md-headline">No pudimos encontrar lo que buscas regresa a:</h4></p>
+    <md-button class="btn1" ui-sref="home">
+      <span translate>TITLE</span>
+    </md-button>
+
+  </div>
+</div>

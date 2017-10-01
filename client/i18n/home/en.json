@@ -1,0 +1,13 @@
+{
+  "TITLE": "CE Broker",
+  "SLOGAN": "Continuing Education Compliance Made Easy",
+  "START_DATE": "Start date",
+  "END_DATE": "End date",
+  "STATE": "State",
+  "SUBMIT": "Submit",
+  "NOT_MATCH": "No matches found for selected options",
+  "INFO_TABLE": "Information table",
+  "AVERAGE_TIME": "Total Average Response Time",
+  "REQUESTS_MACHINE": "Total Requests per Machine",
+  "REQUESTS_STATUS": "Total Requests per Compliance Status"
+}

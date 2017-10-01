@@ -1,0 +1,17 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+    Hugo Tilano -- Frontend development -- @humatios
+
+# THANKS
+
+    <Our family>
+
+# SITE
+    Language: English
+    http://wwws.com.co/
+
+# TECHNOLOGY COLOPHON
+
+    Angular1.5, Angular Material.

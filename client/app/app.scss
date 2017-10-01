@@ -1,0 +1,83 @@
+$fa-font-path: '/assets/fonts/font-awesome/';
+@import '~font-awesome/scss/font-awesome';
+@import '~angular-material/angular-material.min.css';
+@import '~angular-material-data-table/dist/md-data-table.min.css';
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,900|Roboto:300,500,700,900);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+
+/**
+ * App-wide Styles
+ */
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+/* Initial Loading effect */
+.loading-page {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+  background-color: #333;
+
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
+  animation: sk-scaleout 1.0s infinite ease-in-out;
+}
+
+@-webkit-keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0)
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
+}
+
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    opacity: 0;
+  }
+}
+/* End Loading effect */
+
+.link-active {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+a:link {
+  text-decoration: none;
+}
+
+.text-capitalize {
+  text-transform: capitalize;
+}
+
+.justify-li-none {
+  list-style:none;
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+
+// Component styles are injected through gulp
+
+/* inject:scss */
+@import 'shared/datepicker/datepicker';
+@import 'shared/sidenav/sidenav';
+/* endinject */

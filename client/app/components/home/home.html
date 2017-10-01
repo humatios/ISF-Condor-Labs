@@ -1,0 +1,124 @@
+<md-content>
+
+  <md-tabs md-dynamic-height md-border-bottom>
+    <md-tab>
+      <md-tab-label>
+        <span translate>INFO_TABLE</span>
+      </md-tab-label>
+      <md-tab-body>
+
+        <div layout-gt-sm="row" layout="row"
+             layout-align="space-around center">
+          <md-input-container class="md-block" flex-gt-sm>
+            <label translate>START_DATE</label>
+            <md-datepicker ng-model="startDate" md-max-date="$ctrl.today"></md-datepicker>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label translate>END_DATE</label>
+            <md-datepicker ng-model="endDate" md-min-date="startDate"
+                           md-max-date="$ctrl.today"></md-datepicker>
+          </md-input-container>
+
+          <md-input-container class="md-block" flex-gt-sm>
+            <label translate>STATE</label>
+            <md-select ng-model="state">
+              <md-option ng-repeat="state in $ctrl.states" value="{{state.abbrev}}">
+                {{state.abbrev}}
+              </md-option>
+            </md-select>
+          </md-input-container>
+
+          <div>
+            <md-button ng-click="$ctrl.getLogsRecord(startDate, endDate, state)">
+              <span translate>SUBMIT</span>
+            </md-button>
+          </div>
+        </div>
+
+        <div>
+          <div ng-if="$ctrl.searching">
+            <md-progress-linear md-mode="indeterminate"></md-progress-linear>
+          </div>
+          <div ng-if="!$ctrl.searching && $ctrl.records.length <= 0"
+               layout-padding layout="row" layout-align="center center">
+            <md-whiteframe class="md-whiteframe-6dp">
+              <span class="md-display-1" translate>NOT_MATCH</span>
+            </md-whiteframe>
+          </div>
+
+          <md-table-container>
+            <table md-table multiple md-progress="promise">
+              <thead md-head md-order="$ctrl.order">
+              <tr md-row>
+                <th md-column md-order-by="cd_cebroker_state">State Code</th>
+                <th md-column md-order-by="pro_cde">Pro Code</th>
+                <th md-column md-order-by="cd_profession">Profession</th>
+                <th md-column md-order-by="id_license">License ID</th>
+                <th md-column md-order-by="dt_end">Cycle End Date</th>
+                <th md-column md-order-by="ds_compl_status_returned">
+                  Compliance Status
+                </th>
+                <th md-column md-order-by="id_client_nbr">Client ID</th>
+                <th md-column md-order-by="dt_Start_Log">Start Log Date</th>
+                <th md-column md-order-by="dt_end_log">End Log Date</th>
+                <th md-column md-order-by="cd_environment">Environment</th>
+                <th md-column md-order-by="cd_machine">Machine</th>
+              </tr>
+              </thead>
+              <tbody md-body>
+              <tr md-row  ng-repeat="record in $ctrl.records |
+        filter: filter.search | orderBy: $ctrl.order |
+        limitTo: $ctrl.limit : ($ctrl.page -1) * $ctrl.limit">
+                <td md-cell>{{record.cd_cebroker_state}}</td>
+                <td md-cell>{{record.pro_cde}}</td>
+                <td md-cell>{{record.cd_profession}}</td>
+                <td md-cell>{{record.id_license}}</td>
+                <td md-cell>{{record.dt_end}}</td>
+                <td md-cell>{{record.ds_compl_status_returned}}</td>
+                <td md-cell>{{record.id_client_nbr}}</td>
+                <td md-cell>{{record.dt_Start_Log}}</td>
+                <td md-cell>{{record.dt_end_log}}</td>
+                <td md-cell>{{record.cd_environment}}</td>
+                <td md-cell>{{record.cd_machine}}</td>
+              </tr>
+              </tbody>
+            </table>
+          </md-table-container>
+          <md-table-pagination md-limit="$ctrl.limit" md-limit-options="$ctrl.limitOptions"
+                               md-page="$ctrl.page" md-total="{{$ctrl.totalRecords}}" md-page-select>
+          </md-table-pagination>
+        </div>
+
+      </md-tab-body>
+    </md-tab>
+
+    <md-tab>
+      <md-tab-label>
+        <span translate>AVERAGE_TIME</span>
+      </md-tab-label>
+      <md-tab-body>
+
+        <canvas id="line" class="chart chart-line"
+                chart-data="$ctrl.exampleData"
+                chart-labels="$ctrl.labels">
+        </canvas>
+
+      </md-tab-body>
+    </md-tab>
+
+    <md-tab>
+      <md-tab-label>
+        <span translate>REQUESTS_MACHINE</span>
+      </md-tab-label>
+      <md-tab-body>
+        <canvas id="bar" class="chart chart-bar"
+                chart-data="$ctrl.exampleData"
+                chart-labels="$ctrl.labels">
+        </canvas>
+      </md-tab-body>
+    </md-tab>
+
+  </md-tabs>
+
+</md-content>

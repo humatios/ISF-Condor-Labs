@@ -1,0 +1,6 @@
+# robotstxt.org
+
+User-agent: *
+
+#Sitemaps
+Sitemap: http://www.com/sitemap.xml
